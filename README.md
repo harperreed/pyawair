@@ -4,11 +4,15 @@ A very simple python class to access the (private) awair api
 
 ## Why
 
-I have a few Awair devices and they are great. I like how they look and the service they provide. The only issue is that they don't have a public API, so i cannot incorporate the data that they are grabbing into my dashboards and home automation. 
+I have a few Awair devices around my house and they are great. I like how they look, and the service that they provide. The only issue I have with teh device and service is that Awair doesn't offer a public API at the consumer level. I cannot incorporate the data that Awair is collecting into my dashboards and home automation. 
 
 I spent a bit of time looking into how to get access to their enterprise API. APparently you have to pay for it and have five or more devices. Both of those seemed untenable currently. The enterprise product looks really neat so I hope that one day I have an office that can use it!
 
+This API is what powers their iOS app and is robust and well designed. 
+
 ## Example
+
+The API is super straightforward. 
 
 Import the class
 
