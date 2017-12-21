@@ -15,49 +15,53 @@ This API is what powers their iOS app and is robust and well designed.
 The API is super straightforward. 
 
 Import the class
-
-    from awair import awair
+```python
+from awair import awair
+```
 
 You can isntantiate the class by logging in using your username and password
+```python
+username = "email@gmail.com" 
+password = "very long and secure password" 
 
-    username = "email@gmail.com" 
-    password = "very long and secure password" 
-
-    api =  awair(username, password) 
+api =  awair(username, password) 
+```
 
 If you already have an access token, you can use that instead of username and password. This will skip the login process
-
-    access_token = "XXXXX"
-    api =  awair(username, password, access_token)
+```python
+access_token = "XXXXX"
+api =  awair(username, password, access_token)
+```
 
 Once you are logged in, you can grab all the devices
+```python
+devices = api.devices()
 
-    devices = api.devices()
+for device in devices:  #Let's iterate through devices
+  print(device) #Print the device 
 
-    for device in devices:  #Let's iterate through devices
-      print(device) #Print the device 
+  print("Let's grab the weather")
+  weather = api.weather(latitude=device['latitude'],longitude=device['longitude'])
+  print(weather)
 
-      print("Let's grab the weather")
-      weather = api.weather(latitude=device['latitude'],longitude=device['longitude'])
-      print(weather)
-
-      print("Timeline from yesterday to today")
-      timeline = api.timeline(device['id'], yesterday_isoformat_string, today_isoformat_string)
-      
-      print("Event score") #I have no idea what the event score is - but it is full of data!
-      print api.events_score(device['id'])
+  print("Timeline from yesterday to today")
+  timeline = api.timeline(device['id'], yesterday_isoformat_string, today_isoformat_string)
+  
+  print("Event score") #I have no idea what the event score is - but it is full of data!
+  print api.events_score(device['id'])
+```
 
 You can also access your in app "inbox" and get sleep reports
-
-    device_id = "00000" #your device id from the device in the device list
-    inbox = api.inbox() #Grab inbox
-    for message in inbox: #iterate through messages in inbox
-      print message #Print the message
-      
-      if message['title']=='Sleep Report':
-        print("Printing sleep report for " + message['timestamp'])
-        print(api.sleep_report(device_id, message['timestamp']))
-
+```python
+device_id = "00000" #your device id from the device in the device list
+inbox = api.inbox() #Grab inbox
+for message in inbox: #iterate through messages in inbox
+  print message #Print the message
+  
+  if message['title']=='Sleep Report':
+    print("Printing sleep report for " + message['timestamp'])
+    print(api.sleep_report(device_id, message['timestamp']))
+```
 ## Warning
 
 Obviously this is not a supported API. You should not use this. You should work with Awair and use their enterprise offering. 
