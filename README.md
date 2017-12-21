@@ -64,4 +64,4 @@ If that offering doesn't work for you (much like it doesn't yet work for me) - t
 
 I hope this is helpful. It would be pretty easy to use this to create a v nice custom component for home assistant. They API has enough resolution that you could really react to changes when they happen.
 
-If you have questions or comments - hit me up on twitter or email
+If you have questions or comments - hit me up on [twitter](https://twitter.com/harper/) or [email](mailto:harper@nata2.org).
