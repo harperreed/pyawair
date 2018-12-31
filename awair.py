@@ -29,13 +29,12 @@ class awair:
 
   def login(self):
     print("logging in")
-    url = "https://my.awair.is/v1/users/login"
+    url = "https://mobile-app.awair.is/v1/users/login"
     data = {"email":self.username,"password":self.password}
     #headers = {"Authorization":"Bearer MYREALLYLONGTOKENIGOT"}
-
-    response = requests.post(url,data=data).json()
-    self.access_token = response['awair_access_token']
-    self.user_id = response['user_id']
+    response = requests.post(url,json=data).json()
+    self.access_token = response['accessToken']
+    self.user_id = response['userId']
 
   def devices(self):
     url = "https://internal.awair.is/v1.1/users/self/devices"
